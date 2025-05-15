@@ -1,0 +1,108 @@
+/* 1. global reset & smooth scroll */
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: Arial, sans-serif; color:#333; }
+
+/* 2. Header/Nav */
+.site-header {
+  position: fixed; top:0; left:0; width:100%;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(5px);
+  z-index:1000;
+}
+.nav {
+  max-width: 960px; margin:0 auto; padding:1rem;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.nav-logo { font-weight:bold; font-size:1.25rem; color:#6b46c1; }
+.nav-links { list-style:none; display:flex; gap:1rem; }
+.nav-links a {
+  text-decoration:none; color:#333;
+  font-weight:500; transition:color .2s;
+}
+.nav-links a:hover { color:#6b46c1; }
+
+
+/* 3. Hero with parallax gradient background */
+.hero {
+  height:100vh; /* full viewport */
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; padding:0 1rem;
+  background: linear-gradient(to bottom, #3c1361, #6b46c1);
+  background-attachment: fixed; /* parallax effect */
+  background-size: cover;
+  color:#fff;
+  position:relative; /* for content overlay */
+  margin-top: 64px; /* account for fixed header */
+}
+.hero::after {
+  content:""; position:absolute;
+  top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.4);
+}
+.hero-content {
+  position:relative; max-width:640px; z-index:1;
+}
+.hero-content h1 {
+  font-size:2.5rem; margin-bottom:1rem;
+}
+.hero-content p { font-size:1.1rem; margin-bottom:2rem; line-height:1.4; }
+.btn {
+  display:inline-block;
+  padding:0.75rem 1.5rem;
+  background:#e53e3e; color:#fff;
+  text-decoration:none; border-radius:4px;
+  font-weight:600; transition:background .2s;
+}
+.btn:hover { background:#c53030; }
+
+
+/* 4. Features grid with fade-in on scroll */
+.features {
+  max-width:960px; margin:4rem auto;
+  display:grid; grid-template-columns:1fr; gap:2rem;
+  padding:0 1rem;
+}
+@media(min-width:640px) {
+  .features { grid-template-columns:1fr 1fr; }
+}
+.feature {
+  background:#fff; border:1px solid #e2e8f0;
+  padding:1.5rem; border-radius:6px;
+  opacity:0; transform:translateY(20px);
+  animation: fadeInUp .6s forwards;
+}
+.feature:nth-child(1) { animation-delay:0.2s; }
+.feature:nth-child(2) { animation-delay:0.4s; }
+.feature:nth-child(3) { animation-delay:0.6s; }
+.feature:nth-child(4) { animation-delay:0.8s; }
+
+@keyframes fadeInUp {
+  to { opacity:1; transform:translateY(0); }
+}
+
+
+/* 5. Notify section */
+.notify {
+  background:#f7fafc; padding:4rem 1rem; text-align:center;
+}
+.notify h2 { font-size:2rem; color:#6b46c1; margin-bottom:1rem; }
+.notify p { margin-bottom:2rem; font-size:1.05rem; }
+.notify-form { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; }
+.notify-form input {
+  padding:0.75rem; border:1px solid #cbd5e0; border-radius:4px;
+  flex:1 1 250px; max-width:400px;
+}
+.notify-form button {
+  padding:0.75rem 1.5rem; background:#6b46c1; color:#fff;
+  border:none; border-radius:4px; font-weight:600;
+  cursor:pointer; transition:background .2s;
+}
+.notify-form button:hover { background:#553c9a; }
+
+
+/* 6. Footer */
+.site-footer {
+  text-align:center; padding:2rem 1rem; font-size:0.9rem;
+  color:#718096; background:#edf2f7;
+}
