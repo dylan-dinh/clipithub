@@ -84,6 +84,23 @@
     </div>
   </section>
 
+  <!-- VIDEO SECTION -->
+  <section class="video-section">
+    <div class="container">
+      <h2 class="section-title">Video Showcase</h2>
+      <div class="video-container">
+        <div class="coming-soon-overlay">
+          <div class="coming-soon-text">Coming Soon</div>
+        </div>
+        <div class="video-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="play-icon">
+            <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div>&copy; 2025 ClipIt — All rights reserved.</div>
@@ -116,6 +133,8 @@
         offeringItems.forEach(item => {
           if (isInViewport(item)) {
             item.classList.add('visible');
+          } else {
+            item.classList.remove('visible');
           }
         });
       }
