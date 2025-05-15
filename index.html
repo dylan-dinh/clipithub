@@ -114,9 +114,10 @@
   </footer>
 
   <script>
-    // Scroll animation for offering items
+    // Scroll animation for offering items and video container
     document.addEventListener('DOMContentLoaded', function() {
       const offeringItems = document.querySelectorAll('.offering-item');
+      const videoContainer = document.querySelector('.video-container');
       
       // Function to check if an element is in viewport
       function isInViewport(element) {
@@ -129,6 +130,7 @@
       
       // Function to handle scroll event
       function handleScroll() {
+        // Handle offering items
         offeringItems.forEach(item => {
           if (isInViewport(item)) {
             item.classList.add('visible');
@@ -136,6 +138,13 @@
             item.classList.remove('visible');
           }
         });
+        
+        // Handle video container
+        if (videoContainer && isInViewport(videoContainer)) {
+          videoContainer.classList.add('visible');
+        } else if (videoContainer) {
+          videoContainer.classList.remove('visible');
+        }
       }
       
       // Initial check on page load
