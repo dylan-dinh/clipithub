@@ -124,12 +124,26 @@ body {
 /* 5. Offerings Section */
 .offerings {
   padding: 5rem 1rem;
-  background: rgba(248, 247, 249, 0.9);
-  backdrop-filter: blur(5px);
   margin: 2rem auto;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   max-width: calc(100% - 4rem);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Rainbow Background */
+.offerings::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(248, 247, 249, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: -1;
 }
 
 @media (max-width: 768px) {
@@ -175,11 +189,34 @@ body {
   padding: 2rem;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   border: 1px solid rgba(107, 70, 193, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: transform 0.5s ease, box-shadow 0.3s ease, background 0.3s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.offering-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.offering-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.offering-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.offering-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.offering-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .offering-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) !important;
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
   background: rgba(248, 247, 249, 0.95);
   border-color: rgba(107, 70, 193, 0.5);
@@ -204,6 +241,135 @@ body {
   line-height: 1.6;
 }
 
+
+/* Rainbow Animation */
+.rainbow-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.rainbow {
+  height: 100%;
+  width: 0;
+  top: 0;
+  position: absolute;
+  transform: rotate(10deg);
+  transform-origin: top right;
+}
+
+.rainbow:nth-child(1) {
+  box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px rgb(232, 121, 249),
+    0 0 50px 25px rgb(96, 165, 250), 50px 0 50px 25px rgb(94, 234, 212),
+    130px 0 80px 40px white;
+  animation: 45s linear infinite slide;
+  animation-delay: -1.8s;
+}
+
+.rainbow:nth-child(2) {
+  box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px rgb(96, 165, 250),
+    0 0 50px 25px rgb(232, 121, 249), 50px 0 50px 25px rgb(94, 234, 212),
+    130px 0 80px 40px white;
+  animation: 45s linear infinite slide;
+  animation-delay: -3.6s;
+}
+
+.rainbow:nth-child(3) {
+  box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px rgb(94, 234, 212),
+    0 0 50px 25px rgb(232, 121, 249), 50px 0 50px 25px rgb(96, 165, 250),
+    130px 0 80px 40px white;
+  animation: 45s linear infinite slide;
+  animation-delay: -5.4s;
+}
+
+.rainbow:nth-child(4) {
+  box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px rgb(232, 121, 249),
+    0 0 50px 25px rgb(94, 234, 212), 50px 0 50px 25px rgb(96, 165, 250),
+    130px 0 80px 40px white;
+  animation: 45s linear infinite slide;
+  animation-delay: -7.2s;
+}
+
+.rainbow:nth-child(5) {
+  box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px rgb(96, 165, 250),
+    0 0 50px 25px rgb(94, 234, 212), 50px 0 50px 25px rgb(232, 121, 249),
+    130px 0 80px 40px white;
+  animation: 45s linear infinite slide;
+  animation-delay: -9s;
+}
+
+.rainbow:nth-child(6) {
+  box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px rgb(94, 234, 212),
+    0 0 50px 25px rgb(96, 165, 250), 50px 0 50px 25px rgb(232, 121, 249),
+    130px 0 80px 40px white;
+  animation: 45s linear infinite slide;
+  animation-delay: -10.8s;
+}
+
+.rainbow:nth-child(7) {
+  box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px rgb(232, 121, 249),
+    0 0 50px 25px rgb(96, 165, 250), 50px 0 50px 25px rgb(94, 234, 212),
+    130px 0 80px 40px white;
+  animation: 45s linear infinite slide;
+  animation-delay: -12.6s;
+}
+
+.rainbow:nth-child(8) {
+  box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px rgb(96, 165, 250),
+    0 0 50px 25px rgb(232, 121, 249), 50px 0 50px 25px rgb(94, 234, 212),
+    130px 0 80px 40px white;
+  animation: 45s linear infinite slide;
+  animation-delay: -14.4s;
+}
+
+.rainbow:nth-child(9) {
+  box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px rgb(94, 234, 212),
+    0 0 50px 25px rgb(232, 121, 249), 50px 0 50px 25px rgb(96, 165, 250),
+    130px 0 80px 40px white;
+  animation: 45s linear infinite slide;
+  animation-delay: -16.2s;
+}
+
+.rainbow:nth-child(10) {
+  box-shadow: -130px 0 80px 40px white, -50px 0 50px 25px rgb(232, 121, 249),
+    0 0 50px 25px rgb(94, 234, 212), 50px 0 50px 25px rgb(96, 165, 250),
+    130px 0 80px 40px white;
+  animation: 45s linear infinite slide;
+  animation-delay: -18s;
+}
+
+@keyframes slide {
+  from {
+    right: -25vw;
+  }
+  to {
+    right: 125vw;
+  }
+}
+
+.h {
+  box-shadow: 0 0 50vh 40vh white;
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.v {
+  box-shadow: 0 0 35vw 25vw white;
+  width: 0;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+}
 
 /* 6. Footer */
 .site-footer {
